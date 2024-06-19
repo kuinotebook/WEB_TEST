@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뉴스 사이트</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            color: white;
+            background-color: black;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        main {
+            padding: 10px;
+            margin-top: 60px; 
+            z-index: 1;
+        }
+
+        nav {
+            width: 9%;
+            background-color: #a9a9a9;
+            color: white;
+            height: 100%;
+            padding: 15px;
+            position: fixed;
+            top: 60px; 
+            left: 0;
+            z-index: 1;
+        }
+
+        .news-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 85%;
+            margin-left: 13%; 
+        }
+
+        .news-article {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex; 
+            align-items: flex-start; 
+        }
+
+        .news-article:hover {
+            transform: scale(1.02);
+        }
+
+        .news-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+            margin-right: 15px; 
+        }
+
+        .news-article img {
+            width: 150px;
+            height: auto; 
+            border-radius: 20px;
+            margin-left: 15px; 
+        }
+
+        .news-article h2 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .news-article p {
+            margin: 0;
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .news-article .date {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer h2 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .news-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .news-icon:hover {
+            transform: scale(1.05);
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .home-icon {
+            color: #fefefe;
+            position: absolute;
+            left: 18px;
+            font-size: 25px;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 769px) {
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 60px;
+                height: 80px;
+            }
+
+            .news-container {
+                width: 100%;
+                margin-left: 20px;
+            }
+
+            .news-icon {
+                width: 50px;
+                height: 30px;
+                position: relative;
+            }
+
+            main {
+                margin-top: 80px;
+            }
+        }
+
+        @media (max-width: 590px) {
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 60px;
+                height: 120px;
+            }
+
+            .news-container {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .news-icon {
+                width: 50px;
+                height: 30px;
+                position: relative;
+            }
+
+            main {
+                margin-top: 80px;
+            }
+        }
+
+        @media (max-width: 376px) {
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 60px;
+                height: 170px;
+            }
+
+            .news-container {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .news-icon {
+                width: 50px;
+                height: 30px;
+                position: relative;
+            }
+
+            main {
+                margin-top: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="home-icon" href="index.html"><i class="fa-solid fa-house"></i></a>
+        <h1>뉴스 사이트</h1>
+    </header>
+    <nav>
+        <img src="KBS.jpg" class="news-icon" >
+        <img src="MBC.jpg" class="news-icon" >
+        <img src="SBS.jpg" class="news-icon">
+        <img src="YNA.png" class="news-icon">
+        <img src="chosun.jpg" class="news-icon">
+        <img src="seoulfn.jpg" class="news-icon">
+        <img src="HAN.jpg" class="news-icon" >
+        <img src="MK.png" class="news-icon" >
+        <img src="seoul.jpeg" class="news-icon">
+        <img src="HANKYUNG.jpg" class="news-icon">
+        <img src="biotimes.png" class="news-icon">
+        <img src="nate.png" class="news-icon">
+        <img src="donga.png" class="news-icon">
+        <img src="sportsseoul.jpg" class="news-icon">
+        <img src="nongmin.png" class="news-icon">
+        <img src="news1.png" class="news-icon">
+        <img src="MT.jpg" class="news-icon">
+        <img src="joongang.jpg" class="news-icon">
+        <img src="edaily.png" class="news-icon">
+        <img src="khan.jpg" class="news-icon">
+        <img src="xportsnews.png" class="news-icon">
+
+    </nav>
+    <main>
+        <div class="news-container" id="news-container">
+        </div>
+    </main>
+
+    <footer>
+        <h2>2024 뉴스 사이트</h2>
+    </footer>
+
+    <script>
+        const apiKey = '0cf736a4f9244a12baf5e673b850f885'; 
+        const newsContainer = document.getElementById('news-container');
+
+        async function fetchNews(source = '') {
+            newsContainer.innerHTML = '<div class="loading">Loading...</div>'; 
+            let url = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
+            if (source) {
+                url += `&sources=${source}`;
+            }
+            const response = await fetch(url);
+            const data = await response.json();
+            displayNews(data.articles);
+        }
+
+
+        function displayNews(articles) {
+            newsContainer.innerHTML = ''; 
+            articles.forEach(article => {
+                const newsArticle = document.createElement('div');
+                newsArticle.className = 'news-article';
+
+                
+                newsArticle.addEventListener('click', () => { // 클릭시 새창으로 url 열기
+                    window.open(article.url, '_blank');
+                });
+
+                const newsContent = document.createElement('div');
+                newsContent.className = 'news-content';
+
+                const title = document.createElement('h2'); // 기사 타이틀
+                title.textContent = article.title;
+                newsContent.appendChild(title);
+
+                const description = document.createElement('p'); // 기사 내용
+                description.textContent = article.description;
+                newsContent.appendChild(description);
+
+                
+                const date = document.createElement('div'); // 날짜
+                date.className = 'date';
+                date.textContent = new Date(article.publishedAt).toISOString().split('T')[0];
+                newsContent.appendChild(date);
+
+                newsArticle.appendChild(newsContent);
+
+                if (article.urlToImage) { // 이미지가 있다면
+                    const image = document.createElement('img'); // 기사 이미지 추가
+                    image.src = article.urlToImage;
+                    image.alt = article.title;
+                    newsArticle.appendChild(image);
+                }
+
+                newsContainer.appendChild(newsArticle);
+            });
+        }
+
+        fetchNews(); // 뉴스 가져오기
+    </script>
+</body>
+</html>
